@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zhou Restaurante | Seu Buffet Por Kg Favorito</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Inter:wght@300;400;900&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        zhou: { red: '#BC002D', gold: '#C5A059', dark: '#050505', surface: '#0F0F0F' }
+                    },
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .outline-text { color: transparent; -webkit-text-stroke: 1px rgba(255,255,255,0.08); font-size: 15vw; white-space: nowrap; }
+        .overlay-gradient { background: linear-gradient(0deg, rgba(5,5,5,1) 15%, rgba(5,5,5,0.4) 50%, rgba(5,5,5,0) 100%); }
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=2000');
+            background-size: cover; background-position: center; background-attachment: fixed;
+        }
+        /* Ajuste para o scroll suave do auto-play */
+        #slider { scroll-behavior: smooth; }
+    </style>
+</head>
+<body class="bg-zhou-dark text-white font-sans overflow-x-hidden">
+
+    <nav class="fixed w-full z-[100] bg-zhou-dark/95 backdrop-blur-xl h-20 flex items-center px-6 md:px-16 justify-between border-b border-white/5">
+        <div class="flex flex-col">
+            <span class="text-2xl md:text-3xl font-serif font-black text-zhou-red leading-none tracking-tighter uppercase text-white">Zhou</span>
+            <span class="text-[7px] md:text-[8px] tracking-[0.6em] text-zinc-500 uppercase font-bold">Restaurante</span>
+        </div>
+        <div class="flex items-center gap-4 md:gap-8">
+            <a href="https://www.instagram.com/Zhou.Restaurante" target="_blank" class="text-white/80 hover:text-zhou-red transition text-xl">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <button onclick="scrollToUnidades()" class="bg-zhou-red px-5 md:px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-zhou-red/20">
+                Unidades
+            </button>
+        </div>
+    </nav>
+
+    <section class="relative h-screen flex items-center justify-center hero-bg">
+        <div class="relative text-center px-4">
+            <p class="text-zhou-gold tracking-[0.8em] md:tracking-[1.2em] uppercase text-[10px] md:text-xs mb-4 opacity-90 font-bold italic">Seu Buffet Por Kg Favorito</p>
+            <h1 class="font-serif text-[20vw] md:text-[13rem] font-black leading-none tracking-tighter mb-6">ZHOU</h1>
+            <div class="w-16 h-[2px] bg-zhou-red mx-auto mb-8"></div>
+            <a href="https://www.instagram.com/Zhou.Restaurante" target="_blank" class="inline-flex items-center gap-3 px-8 py-4 bg-white/10 backdrop-blur-md border border-white/20 rounded-full hover:bg-zhou-red hover:border-zhou-red transition-all duration-500 group">
+                <i class="fab fa-instagram text-xl group-hover:scale-110 transition"></i>
+                <span class="text-[10px] font-black uppercase tracking-[0.3em]">Siga-nos no Instagram</span>
+            </a>
+        </div>
+    </section>
+
+    <section id="unidades" class="relative py-24 md:py-32 overflow-hidden bg-zhou-dark border-b border-white/5">
+        <div class="absolute top-10 left-0 w-full select-none pointer-events-none opacity-20">
+            <span class="outline-text font-black uppercase italic">NOSSAS UNIDADES • NOSSAS UNIDADES</span>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-10">
+            <h2 class="text-5xl md:text-7xl font-serif font-bold mb-16 italic text-center md:text-left tracking-tight">Nossas <span class="text-zhou-red">Unidades.</span></h2>
+            
+            <div id="slider" class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scroll scroll-smooth">
+                
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-3xl border border-white/5 cursor-pointer shadow-2xl" 
+                     onclick="openModal('Zhou Giassi Campinas', 'Av. Irineu Bornhausen, 74 - Campinas, São José', 'Zhou+Restaurante+Giassi+Campinas')">
+                    <img src="https://i.postimg.cc/h427d1g2/unnamed.webp" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-12 left-10 text-left">
+                        <span class="text-zhou-red font-bold text-[10px] uppercase tracking-widest block mb-2">São José</span>
+                        <h3 class="text-3xl font-serif font-bold leading-tight">Giassi Campinas</h3>
+                    </div>
+                </div>
+
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-3xl border border-white/5 cursor-pointer shadow-2xl" 
+                     onclick="openModal('Zhou Biguaçu', 'R. Cel. Teixeira de Oliveira, 128 - Centro, Biguaçu', 'Zhou+Restaurante+Biguaçu')">
+                    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1000" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-12 left-10 text-left">
+                        <span class="text-zhou-red font-bold text-[10px] uppercase tracking-widest block mb-2">Centro</span>
+                        <h3 class="text-3xl font-serif font-bold leading-tight">Biguaçu</h3>
+                    </div>
+                </div>
+
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-3xl border border-white/5 cursor-pointer shadow-2xl" 
+                     onclick="openModal('Zhou Trindade', 'R. Profa. Maria Flora Pausewang, 131 - Trindade, Florianópolis', 'Zhou+Restaurante+Trindade')">
+                    <img src="https://images.unsplash.com/photo-1611143669185-af224c5e3252?w=1000" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-12 left-10 text-left">
+                        <span class="text-zhou-red font-bold text-[10px] uppercase tracking-widest block mb-2">Florianópolis</span>
+                        <h3 class="text-3xl font-serif font-bold leading-tight text-white">Trindade</h3>
+                    </div>
+                </div>
+
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-3xl border border-white/5 cursor-pointer shadow-2xl" 
+                     onclick="openModal('Zhou Giassi Saco Grande', 'Rod. José Carlos Daux - Saco Grande, Florianópolis', 'Zhou+Restaurante+Giassi+Saco+Grande')">
+                    <img src="https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?w=1000" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute inset-0 overlay-gradient"></div>
+                    <div class="absolute bottom-12 left-10 text-left">
+                        <span class="text-zhou-red font-bold text-[10px] uppercase tracking-widest block mb-2">Florianópolis</span>
+                        <h3 class="text-3xl font-serif font-bold leading-tight text-white text-left">Giassi Saco Grande</h3>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-16 bg-black text-center px-6">
+        <a href="https://www.instagram.com/Zhou.Restaurante" target="_blank" class="inline-block mb-6 hover:scale-110 transition">
+            <i class="fab fa-instagram text-3xl text-zhou-red text-white"></i>
+        </a>
+        <p class="text-[9px] text-zinc-500 tracking-[0.6em] uppercase mb-10">@Zhou.Restaurante</p>
+        
+        <div class="flex flex-col items-center gap-2 opacity-30">
+            <span class="text-[7px] uppercase tracking-[0.3em] text-zinc-400">Created by</span>
+            <span class="text-[10px] font-black uppercase tracking-[0.5em] text-white">Tassio Lino</span>
+        </div>
+    </footer>
+
+    <div id="modal" class="fixed inset-0 z-[120] hidden items-center justify-center p-4 bg-zhou-dark/98 backdrop-blur-2xl">
+        <div class="bg-zhou-surface p-8 md:p-12 max-w-md w-full border border-white/10 shadow-3xl text-center relative rounded-[2.5rem]">
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-zinc-500 hover:text-white transition text-3xl font-light">×</button>
+            <h3 id="m-name" class="text-3xl font-serif mb-2 italic text-zhou-red">Unidade</h3>
+            <p id="m-addr" class="text-[10px] text-zinc-500 uppercase tracking-widest mb-10 px-6 leading-relaxed">Endereço</p>
+            <div class="grid grid-cols-1 gap-4 mb-8 text-white">
+                <a id="link-maps" href="#" target="_blank" class="flex items-center justify-between p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-zhou-red transition group">
+                    <div class="flex items-center gap-4">
+                        <i class="fas fa-location-dot text-2xl text-zhou-red group-hover:text-white"></i>
+                        <span class="text-xs font-bold uppercase tracking-widest">Google Maps</span>
+                    </div>
+                </a>
+                <a id="link-waze" href="#" target="_blank" class="flex items-center justify-between p-5 bg-white/5 border border-white/10 rounded-2xl hover:bg-[#33f1ff]/20 hover:border-[#33f1ff]/50 transition group">
+                    <div class="flex items-center gap-4">
+                        <i class="fab fa-waze text-2xl text-[#33f1ff]"></i>
+                        <span class="text-xs font-bold uppercase tracking-widest">Waze App</span>
+                    </div>
+                </a>
+            </div>
+            <button onclick="closeModal()" class="w-full py-4 text-[9px] font-black uppercase tracking-[0.3em] bg-zinc-800 text-zinc-400 hover:bg-white hover:text-black transition-all rounded-full">Voltar</button>
+        </div>
+    </div>
+
+    <script>
+        // Função do Modal
+        function openModal(name, addr, query) {
+            document.getElementById('m-name').innerText = name;
+            document.getElementById('m-addr').innerText = addr;
+            document.getElementById('link-maps').href = `https://www.google.com/maps/search/?api=1&query=${query}`;
+            document.getElementById('link-waze').href = `https://waze.com/ul?q=${query}&navigate=yes`;
+            document.getElementById('modal').classList.replace('hidden', 'flex');
+            document.body.style.overflow = 'hidden';
+            stopAutoPlay(); // Para o slide quando o modal está aberto
+        }
+
+        function closeModal() { 
+            document.getElementById('modal').classList.replace('flex', 'hidden'); 
+            document.body.style.overflow = 'auto';
+            startAutoPlay(); // Reinicia o slide
+        }
+
+        function scrollToUnidades() { 
+            document.getElementById('unidades').scrollIntoView({ behavior: 'smooth' }); 
+        }
+
+        // Lógica do Slide Automático
+        const slider = document.getElementById('slider');
+        let autoPlayInterval;
+
+        function startAutoPlay() {
+            autoPlayInterval = setInterval(() => {
+                const scrollStep = slider.offsetWidth * 0.8; // Move 80% da largura visível
+                if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) {
+                    slider.scrollTo({ left: 0, behavior: 'smooth' }); // Volta ao início
+                } else {
+                    slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
+                }
+            }, 3000); // 3 segundos
+        }
+
+        function stopAutoPlay() {
+            clearInterval(autoPlayInterval);
+        }
+
+        // Inicia o Auto-play ao carregar
+        startAutoPlay();
+
+        // Para o auto-play se o usuário interagir manualmente (opcional, para melhor UX)
+        slider.addEventListener('touchstart', stopAutoPlay);
+        slider.addEventListener('mousedown', stopAutoPlay);
+    </script>
+</body>
+</html>
