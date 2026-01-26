@@ -30,7 +30,6 @@
             background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=2000');
             background-size: cover; background-position: center; background-attachment: fixed;
         }
-        /* Ajuste para o scroll suave do auto-play */
         #slider { scroll-behavior: smooth; }
     </style>
 </head>
@@ -69,7 +68,18 @@
         </div>
 
         <div class="max-w-7xl mx-auto px-6 relative z-10">
-            <h2 class="text-5xl md:text-7xl font-serif font-bold mb-16 italic text-center md:text-left tracking-tight">Nossas <span class="text-zhou-red">Unidades.</span></h2>
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
+                <h2 class="text-5xl md:text-7xl font-serif font-bold italic tracking-tight">Nossas <span class="text-zhou-red">Unidades.</span></h2>
+                
+                <div class="flex gap-4">
+                    <button onclick="moveSlider('prev')" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-zhou-red hover:border-zhou-red transition-all group">
+                        <i class="fas fa-chevron-left text-xs group-hover:scale-110"></i>
+                    </button>
+                    <button onclick="moveSlider('next')" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-zhou-red hover:border-zhou-red transition-all group">
+                        <i class="fas fa-chevron-right text-xs group-hover:scale-110"></i>
+                    </button>
+                </div>
+            </div>
             
             <div id="slider" class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scroll scroll-smooth">
                 
@@ -113,13 +123,29 @@
                     </div>
                 </div>
 
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-3xl border border-dashed border-white/10 bg-white/5 flex items-center justify-center">
+                    <div class="text-center p-10 opacity-40 group-hover:opacity-100 transition-opacity">
+                        <i class="fas fa-hammer text-4xl mb-6 text-zhou-red animate-bounce"></i>
+                        <h3 class="text-2xl font-serif font-bold italic mb-2">Nova Unidade</h3>
+                        <p class="text-[9px] uppercase tracking-widest text-zhou-gold font-bold">Criação em Andamento</p>
+                    </div>
+                </div>
+
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-3xl border border-dashed border-white/10 bg-white/5 flex items-center justify-center">
+                    <div class="text-center p-10 opacity-40 group-hover:opacity-100 transition-opacity">
+                        <i class="fas fa-utensils text-4xl mb-6 text-zhou-red animate-bounce"></i>
+                        <h3 class="text-2xl font-serif font-bold italic mb-2">Nova Unidade</h3>
+                        <p class="text-[9px] uppercase tracking-widest text-zhou-gold font-bold">Criação em Andamento</p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
 
     <footer class="py-16 bg-black text-center px-6">
         <a href="https://www.instagram.com/Zhou.Restaurante" target="_blank" class="inline-block mb-6 hover:scale-110 transition">
-            <i class="fab fa-instagram text-3xl text-zhou-red text-white"></i>
+            <i class="fab fa-instagram text-3xl text-zhou-red"></i>
         </a>
         <p class="text-[9px] text-zinc-500 tracking-[0.6em] uppercase mb-10">@Zhou.Restaurante</p>
         
@@ -153,7 +179,10 @@
     </div>
 
     <script>
-        // Função do Modal
+        const slider = document.getElementById('slider');
+        let autoPlayInterval;
+
+        // Função para abrir o Modal
         function openModal(name, addr, query) {
             document.getElementById('m-name').innerText = name;
             document.getElementById('m-addr').innerText = addr;
@@ -161,44 +190,61 @@
             document.getElementById('link-waze').href = `https://waze.com/ul?q=${query}&navigate=yes`;
             document.getElementById('modal').classList.replace('hidden', 'flex');
             document.body.style.overflow = 'hidden';
-            stopAutoPlay(); // Para o slide quando o modal está aberto
+            stopAutoPlay();
         }
 
         function closeModal() { 
             document.getElementById('modal').classList.replace('flex', 'hidden'); 
             document.body.style.overflow = 'auto';
-            startAutoPlay(); // Reinicia o slide
+            startAutoPlay();
         }
 
         function scrollToUnidades() { 
             document.getElementById('unidades').scrollIntoView({ behavior: 'smooth' }); 
         }
 
-        // Lógica do Slide Automático
-        const slider = document.getElementById('slider');
-        let autoPlayInterval;
+        // Função para mover o Slider manualmente via Botões
+        function moveSlider(direction) {
+            stopAutoPlay(); // Para o automático quando o usuário clica
+            const scrollAmount = slider.offsetWidth * 0.8;
+            if (direction === 'next') {
+                if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) {
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            } else {
+                if (slider.scrollLeft <= 10) {
+                    slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                }
+            }
+            startAutoPlay(); // Reinicia o automático após a ação
+        }
 
+        // Lógica do Auto-play
         function startAutoPlay() {
             autoPlayInterval = setInterval(() => {
-                const scrollStep = slider.offsetWidth * 0.8; // Move 80% da largura visível
+                const scrollStep = slider.offsetWidth * 0.8;
                 if (slider.scrollLeft + slider.offsetWidth >= slider.scrollWidth - 10) {
-                    slider.scrollTo({ left: 0, behavior: 'smooth' }); // Volta ao início
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
                 } else {
                     slider.scrollBy({ left: scrollStep, behavior: 'smooth' });
                 }
-            }, 3000); // 3 segundos
+            }, 4000); 
         }
 
         function stopAutoPlay() {
             clearInterval(autoPlayInterval);
         }
 
-        // Inicia o Auto-play ao carregar
-        startAutoPlay();
-
-        // Para o auto-play se o usuário interagir manualmente (opcional, para melhor UX)
-        slider.addEventListener('touchstart', stopAutoPlay);
+        // Eventos para pausar ao interagir
         slider.addEventListener('mousedown', stopAutoPlay);
+        slider.addEventListener('touchstart', stopAutoPlay);
+
+        // Inicialização
+        startAutoPlay();
     </script>
 </body>
 </html>
