@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zhou Restaurante | 10 Anos de Tradição</title>
-    <meta charset="UTF-8">
-    <title>Zhou Restaurante</title>
     
     <link rel="icon" type="image/png" href="https://i.postimg.cc/MTZ0yMhq/Whats-App-Image-2025-12-01-at-09-12-32-removebg-preview.png">
     
@@ -18,20 +16,10 @@
             theme: {
                 extend: {
                     colors: {
-                        zhou: { 
-                            red: '#BC002D', 
-                            gold: '#C5A059', 
-                            dark: '#050505', 
-                            surface: '#0F0F0F' 
-                        }
+                        zhou: { red: '#BC002D', gold: '#C5A059', dark: '#050505', surface: '#0F0F0F' }
                     },
-                    fontFamily: { 
-                        serif: ['Playfair Display', 'serif'], 
-                        sans: ['Inter', 'sans-serif'] 
-                    },
-                    animation: {
-                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-                    }
+                    fontFamily: { serif: ['Playfair Display', 'serif'], sans: ['Inter', 'sans-serif'] },
+                    animation: { 'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite' }
                 }
             }
         }
@@ -45,35 +33,18 @@
             background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1579871494447-9811cf80d66c?q=80&w=2000');
             background-size: cover; background-position: center; background-attachment: fixed;
         }
-        #slider { scroll-behavior: smooth; }
-        
-        /* Transição suave para a história */
-        #historia-content {
-            transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease;
-        }
-
-        /* Efeito Hover nos botões de navegação */
-        .nav-link-effect {
-            position: relative;
-        }
+        .nav-link-effect { position: relative; }
         .nav-link-effect::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: #C5A059;
-            transition: width 0.3s ease;
+            content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px;
+            background: #C5A059; transition: width 0.3s ease;
         }
-        .nav-link-effect:hover::after {
-            width: 100%;
-        }
+        .nav-link-effect:hover::after { width: 100%; }
+        #historia-content { transition: max-height 0.8s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.5s ease; }
     </style>
 </head>
 <body class="bg-zhou-dark text-white font-sans overflow-x-hidden">
 
-    <a href="https://wa.me/5548988140772" target="_blank" aria-label="WhatsApp" class="fixed bottom-8 right-8 z-[200] bg-green-500 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all active:scale-95">
+    <a href="https://wa.me/5548988140772" target="_blank" class="fixed bottom-8 right-8 z-[200] bg-green-500 w-14 h-14 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-all active:scale-95">
         <i class="fab fa-whatsapp text-2xl text-white"></i>
     </a>
 
@@ -86,9 +57,8 @@
         <div class="flex items-center gap-4 md:gap-8">
             <div class="hidden lg:flex items-center gap-8 mr-4">
                 <button onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})" class="nav-link-effect text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition">Sobre Nós</button>
-                <a href="https://form.typeform.com/to/BVVwcFqv" target="_blank" class="nav-link-effect text-[10px] font-black uppercase tracking-[0.2em] text-zhou-gold hover:text-white transition">
-                    Trabalhe Conosco
-                </a>
+                <button onclick="document.getElementById('depoimentos').scrollIntoView({behavior:'smooth'})" class="nav-link-effect text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition">Depoimentos</button>
+                <button onclick="document.getElementById('faq').scrollIntoView({behavior:'smooth'})" class="nav-link-effect text-[10px] font-black uppercase tracking-[0.2em] text-zinc-400 hover:text-white transition">Dúvidas</button>
             </div>
             <button onclick="document.getElementById('unidades').scrollIntoView({behavior:'smooth'})" class="bg-zhou-red px-6 py-2 rounded-full text-[10px] font-black uppercase tracking-widest hover:scale-105 transition shadow-lg shadow-zhou-red/20 active:scale-95">Unidades</button>
         </div>
@@ -100,82 +70,72 @@
             <h1 class="font-serif text-[18vw] md:text-[12rem] font-black leading-none tracking-tighter mb-6 select-none">ZHOU</h1>
             <div class="w-16 h-[2px] bg-zhou-red mx-auto mb-8"></div>
             <p class="max-w-md mx-auto text-zinc-300 text-sm md:text-base font-light mb-10 leading-relaxed uppercase tracking-widest">Tempero autoral & Frescor absoluto</p>
-            
-            <button onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})" class="animate-bounce mt-10 text-zinc-500">
-                <i class="fas fa-chevron-down"></i>
-            </button>
+            <button onclick="document.getElementById('historia').scrollIntoView({behavior:'smooth'})" class="animate-bounce mt-10 text-zinc-500"><i class="fas fa-chevron-down"></i></button>
         </div>
     </section>
-
     <section id="historia" class="py-24 bg-zhou-surface relative border-b border-white/5">
         <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center mb-32">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div class="relative group">
                     <div class="absolute -inset-4 border border-zhou-gold/20 rounded-[3rem] group-hover:border-zhou-gold/40 transition-colors duration-500"></div>
                     <img src="https://i.postimg.cc/zvy0mHz9/unnamed-(2).jpg" class="relative rounded-[2.5rem] shadow-2xl grayscale hover:grayscale-0 transition-all duration-700 aspect-[4/5] object-cover" alt="Ambiente Zhou">
                     <div class="absolute -bottom-6 -right-6 bg-zhou-red p-6 rounded-2xl hidden md:block shadow-2xl transform group-hover:translate-y-[-10px] transition-transform">
                         <span class="block text-3xl font-serif italic font-bold">10 Anos</span>
-                        <span class="text-[8px] uppercase tracking-widest font-black">Construindo um Legado</span>
+                        <span class="text-[8px] uppercase tracking-widest font-black text-white">Construindo um Legado</span>
                     </div>
                 </div>
-
                 <div class="space-y-8">
                     <div>
                         <span class="text-zhou-gold text-[10px] font-black uppercase tracking-[0.5em] block mb-2">Nossa Jornada</span>
                         <h2 class="text-4xl md:text-6xl font-serif font-bold italic leading-tight">Do Amor ao <span class="text-zhou-red">Negócio Próprio.</span></h2>
                     </div>
-
                     <div class="relative">
                         <div id="historia-content" class="text-zinc-400 leading-relaxed font-light text-base space-y-4 max-h-[160px] overflow-hidden relative">
                             <p>Tudo começou com o encontro de <strong>Letícia Hammes e Marcos Zhou</strong>. Ele, carregando a tradição chinesa no sobrenome; ela, a força e o carisma brasileiro. Ainda jovens, juntaram suas economias com um único objetivo: sobrevivência e independência.</p>
                             <p>Ao deixarem Joinville para abrir a primeira unidade em Biguaçu, trouxeram algo que se tornaria o DNA da marca: <strong>comida feita na hora, tempero autoral e frescor absoluto.</strong> O que era um projeto de vida, tornou-se uma referência gastronômica em Santa Catarina.</p>
-                            <p class="pt-2">Com o passar dos anos, o Zhou deixou de ser apenas um sonho de dois jovens para se tornar um símbolo de qualidade. A união entre a técnica milenar oriental e o paladar exigente do brasileiro criou uma experiência única, onde cada cliente é recebido como parte da nossa própria família.</p>
-                            <p>Hoje, celebramos uma década de história, mantendo os mesmos valores do primeiro dia: o respeito absoluto pelos ingredientes e a paixão por servir bem.</p>
+                            <p class="pt-2">Hoje, celebramos uma década de história, mantendo os mesmos valores do primeiro dia: o respeito absoluto pelos ingredientes e a paixão por servir bem.</p>
                         </div>
-                        
                         <div id="historia-gradient" class="absolute bottom-0 left-0 w-full h-16 bg-gradient-to-t from-zhou-surface to-transparent pointer-events-none"></div>
                     </div>
-
                     <button onclick="toggleHistoria()" id="btn-historia" class="group flex items-center gap-3 text-zhou-gold text-[10px] font-black uppercase tracking-[0.2em] hover:text-white transition-all">
                         <span>Ler história completa</span>
                         <i id="icon-historia" class="fas fa-chevron-down text-[8px] transition-transform duration-500"></i>
                     </button>
-
-                    <div class="flex items-center gap-4 text-zhou-gold italic font-serif pt-4">
-                        <div class="w-12 h-[1px] bg-zhou-red"></div>
-                        <span>Tradição Oriental, Coração Brasileiro.</span>
-                    </div>
                 </div>
             </div>
+        </div>
+    </section>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div class="order-2 md:order-1 space-y-6">
-                    <span class="text-zhou-gold text-[10px] font-black uppercase tracking-[0.5em]">A Evolução</span>
-                    <h2 class="text-4xl md:text-6xl font-serif font-bold italic">Crescimento <span class="text-zhou-red">Acelerado.</span></h2>
-                    <p class="text-zinc-400 leading-relaxed font-light italic">A resposta do público foi imediata. Nossas casas estão sempre pulsantes, com mesas que giram e frescor que não para.</p>
-                    
-                    <div class="space-y-4 pt-4 border-l-2 border-zhou-red/20 pl-6">
-                        <div class="group">
-                            <span class="text-zhou-red font-black text-sm transition-colors group-hover:text-zhou-gold">2024</span>
-                            <p class="text-xs uppercase tracking-widest text-zinc-500">Abertura da Segunda Empresa</p>
-                        </div>
-                        <div class="group">
-                            <span class="text-zhou-red font-black text-sm transition-colors group-hover:text-zhou-gold">2025</span>
-                            <p class="text-xs uppercase tracking-widest text-zinc-500">Junho (Unidade 3) | Dezembro (Unidade 4)</p>
-                        </div>
-                        <div class="group">
-                            <span class="text-zhou-gold font-black text-sm">2026</span>
-                            <p class="text-xs uppercase tracking-widest font-white font-bold"> +2 Novas Unidades em Preparo</p>
-                        </div>
+    <section id="depoimentos" class="py-24 bg-zhou-dark relative border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-20">
+                <span class="text-zhou-gold text-[10px] font-black uppercase tracking-[0.5em] block mb-2">Experiência Zhou</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold italic text-white">O que nossos <span class="text-zhou-red">clientes dizem.</span></h2>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-zhou-surface p-10 rounded-[2.5rem] border border-white/5 hover:border-zhou-gold/20 transition-all duration-500">
+                    <div class="flex gap-1 text-zhou-gold mb-6"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-zinc-400 italic leading-relaxed mb-8">"Melhor comida oriental de Santa Catarina! O frescor do sushi e o tempero dos pratos quentes são incomparáveis."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-zhou-red/20 rounded-full flex items-center justify-center text-zhou-red font-black text-[10px]">RL</div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-zinc-300">Ricardo Lemos</span>
                     </div>
                 </div>
-                
-                <div class="order-1 md:order-2 grid grid-cols-2 gap-4">
-                    <img src="https://i.postimg.cc/7LDTKz2n/Whats-App-Image-2026-01-22-at-19-18-21.jpg" class="rounded-2xl h-48 w-full object-cover shadow-xl hover:scale-105 transition-transform duration-500">
-                    <img src="https://i.postimg.cc/B6thHctP/unnamed.jpg" class="rounded-2xl h-64 w-full object-cover shadow-xl hover:scale-105 transition-transform duration-500 mt-8">
-                    <img src="https://i.postimg.cc/y8qkzQ7q/A3B9C6BB-4FB3-44D0-921C-9934987A7B56.webp" class="rounded-2xl h-64 w-full object-cover shadow-xl hover:scale-105 transition-transform duration-500 -mt-16">
-                    <img src="https://i.postimg.cc/h427d1g2/unnamed.webp" class="rounded-2xl h-48 w-full object-cover shadow-xl hover:scale-105 transition-transform duration-500">
+                <div class="bg-zhou-surface p-10 rounded-[2.5rem] border border-white/5 hover:border-zhou-gold/20 transition-all duration-500 md:scale-105 shadow-2xl z-10">
+                    <div class="flex gap-1 text-zhou-gold mb-6"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-white italic leading-relaxed mb-8">"Sou cliente fiel desde o início em Biguaçu. Ver o crescimento do Zhou sem perder a essência é maravilhoso."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-zhou-gold/20 rounded-full flex items-center justify-center text-zhou-gold font-black text-[10px]">AM</div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-white">Ana Maria</span>
+                    </div>
+                </div>
+                <div class="bg-zhou-surface p-10 rounded-[2.5rem] border border-white/5 hover:border-zhou-gold/20 transition-all duration-500">
+                    <div class="flex gap-1 text-zhou-gold mb-6"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                    <p class="text-zinc-400 italic leading-relaxed mb-8">"Variedade incrível e tudo feito com muito capricho. O buffet por quilo premium vale cada centavo."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-10 h-10 bg-zhou-red/20 rounded-full flex items-center justify-center text-zhou-red font-black text-[10px]">FS</div>
+                        <span class="text-[10px] font-black uppercase tracking-widest text-zinc-300">Felipe Souza</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -185,66 +145,95 @@
         <div class="absolute top-10 left-0 w-full opacity-10 select-none pointer-events-none">
             <span class="outline-text font-black uppercase italic">ONDE ESTAMOS • ZHOU RESTAURANTE</span>
         </div>
-
         <div class="max-w-7xl mx-auto px-6 relative z-10">
             <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-8">
                 <h2 class="text-5xl md:text-7xl font-serif font-bold italic">Nossas <span class="text-zhou-red">Unidades.</span></h2>
                 <div class="flex gap-4">
-                    <button onclick="moveSlider('prev')" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-zhou-red hover:border-zhou-red transition-all group">
-                        <i class="fas fa-chevron-left text-xs"></i>
-                    </button>
-                    <button onclick="moveSlider('next')" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-zhou-red hover:border-zhou-red transition-all group">
-                        <i class="fas fa-chevron-right text-xs"></i>
-                    </button>
+                    <button onclick="moveSlider('prev')" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-zhou-red transition-all"><i class="fas fa-chevron-left text-xs"></i></button>
+                    <button onclick="moveSlider('next')" class="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:bg-zhou-red transition-all"><i class="fas fa-chevron-right text-xs"></i></button>
                 </div>
             </div>
-            
             <div id="slider" class="flex gap-6 overflow-x-auto snap-x snap-mandatory hide-scroll pb-8">
-                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-[2.5rem] border border-white/5 cursor-pointer" 
-                     onclick="openModal('Zhou Giassi Campinas', 'Av. Irineu Bornhausen, 74 - Campinas, São José', 'Zhou Restaurante Giassi Campinas')">
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-[2.5rem] border border-white/5 cursor-pointer" onclick="openModal('Zhou Giassi Campinas', 'Av. Irineu Bornhausen, 74 - Campinas, São José', 'Zhou Restaurante Giassi Campinas', 'campinas')">
                     <img src="https://i.postimg.cc/h427d1g2/unnamed.webp" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute top-8 right-8 z-20" id="status-campinas"></div>
                     <div class="absolute inset-0 overlay-gradient"></div>
                     <div class="absolute bottom-12 left-10 text-left">
                         <span class="text-zhou-red font-bold text-[10px] uppercase tracking-widest block mb-2">São José</span>
                         <h3 class="text-3xl font-serif font-bold leading-tight">Giassi Campinas</h3>
                     </div>
                 </div>
-
-                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-[2.5rem] border border-white/5 cursor-pointer" 
-                     onclick="openModal('Zhou Biguaçu', 'R. Cel. Teixeira de Oliveira, 128 - Centro, Biguaçu', 'Zhou Restaurante Biguaçu')">
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-[2.5rem] border border-white/5 cursor-pointer" onclick="openModal('Zhou Biguaçu', 'R. Cel. Teixeira de Oliveira, 128 - Centro, Biguaçu', 'Zhou Restaurante Biguaçu', 'biguacu')">
                     <img src="https://i.postimg.cc/y8qkzQ7q/A3B9C6BB-4FB3-44D0-921C-9934987A7B56.webp" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute top-8 right-8 z-20" id="status-biguacu"></div>
                     <div class="absolute inset-0 overlay-gradient"></div>
                     <div class="absolute bottom-12 left-10 text-left">
                         <span class="text-zhou-red font-bold text-[10px] uppercase tracking-widest block mb-2">Centro</span>
                         <h3 class="text-3xl font-serif font-bold leading-tight">Biguaçu</h3>
                     </div>
                 </div>
-
-                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-[2.5rem] border border-white/5 cursor-pointer" 
-                     onclick="openModal('Zhou Trindade', 'R. Profa. Maria Flora Pausewang, 131 - Trindade, Florianópolis', 'Zhou Restaurante Trindade')">
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-[2.5rem] border border-white/5 cursor-pointer" onclick="openModal('Zhou Viva Trindade', 'R. Profa. Maria Flora Pausewang, 131 - Trindade, Florianópolis', 'Zhou Restaurante Trindade', 'trindade')">
                     <img src="https://i.postimg.cc/7LDTKz2n/Whats-App-Image-2026-01-22-at-19-18-21.jpg" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute top-8 right-8 z-20" id="status-trindade"></div>
                     <div class="absolute inset-0 overlay-gradient"></div>
                     <div class="absolute bottom-12 left-10 text-left">
                         <span class="text-zhou-red font-bold text-[10px] uppercase tracking-widest block mb-2">Florianópolis</span>
-                        <h3 class="text-3xl font-serif font-bold leading-tight">Trindade</h3>
+                        <h3 class="text-3xl font-serif font-bold leading-tight">Viva Trindade</h3>
                     </div>
                 </div>
-
-                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-[2.5rem] border border-white/5 cursor-pointer" 
-                     onclick="openModal('Zhou Giassi Saco Grande', 'Rod. José Carlos Daux - Saco Grande, Florianópolis', 'Zhou Restaurante Giassi Saco Grande')">
+                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden group rounded-[2.5rem] border border-white/5 cursor-pointer" onclick="openModal('Zhou Giassi Saco Grande', 'Rod. José Carlos Daux - Saco Grande, Florianópolis', 'Zhou Restaurante Giassi Saco Grande', 'sc401')">
                     <img src="https://i.postimg.cc/B6thHctP/unnamed.jpg" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110">
+                    <div class="absolute top-8 right-8 z-20" id="status-sc401"></div>
                     <div class="absolute inset-0 overlay-gradient"></div>
                     <div class="absolute bottom-12 left-10 text-left">
                         <span class="text-zhou-red font-bold text-[10px] uppercase tracking-widest block mb-2">Florianópolis</span>
-                        <h3 class="text-3xl font-serif font-bold leading-tight">Giassi Saco Grande</h3>
+                        <h3 class="text-3xl font-serif font-bold leading-tight">Giassi SC-401</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-24 bg-zhou-surface relative border-b border-white/5">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-zhou-gold text-[10px] font-black uppercase tracking-[0.5em] block mb-2">Atendimento</span>
+                <h2 class="text-4xl md:text-6xl font-serif font-bold italic text-white">Dúvidas <span class="text-zhou-red">Frequentes.</span></h2>
+            </div>
+
+            <div class="space-y-4">
+                <div class="border border-white/5 rounded-2xl overflow-hidden bg-zhou-dark/50 transition-all duration-300 hover:border-zhou-gold/20">
+                    <button onclick="toggleFaq(1)" class="w-full p-6 text-left flex justify-between items-center group outline-none">
+                        <span class="text-sm md:text-base font-bold tracking-wide text-zinc-200 group-hover:text-zhou-gold transition-colors uppercase">Vocês atendem por delivery?</span>
+                        <i id="faq-icon-1" class="fas fa-plus text-xs text-zhou-red transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-1" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-white/5">
+                        <p class="p-6 text-sm text-zinc-400 leading-relaxed">Atualmente nosso foco é a experiência presencial em nossas unidades com buffet premium.</p>
                     </div>
                 </div>
 
-                <div class="unit-item snap-center shrink-0 w-[85vw] md:w-[450px] h-[550px] relative overflow-hidden rounded-[2.5rem] border border-dashed border-white/10 bg-white/5 flex items-center justify-center">
-                    <div class="text-center p-10 opacity-40 group hover:opacity-100 transition-opacity">
-                        <i class="fas fa-hammer text-4xl mb-6 text-zhou-red animate-bounce"></i>
-                        <h3 class="text-2xl font-serif font-bold italic mb-2">+2 Unidades</h3>
-                        <p class="text-[9px] uppercase tracking-widest text-zhou-gold font-black">Em Preparação para Fevereiro</p>
+                <div class="border border-white/5 rounded-2xl overflow-hidden bg-zhou-dark/50 transition-all duration-300 hover:border-zhou-gold/20">
+                    <button onclick="toggleFaq(2)" class="w-full p-6 text-left flex justify-between items-center group outline-none">
+                        <span class="text-sm md:text-base font-bold tracking-wide text-zinc-200 group-hover:text-zhou-gold transition-colors uppercase">Possuem opções vegetarianas?</span>
+                        <i id="faq-icon-2" class="fas fa-plus text-xs text-zhou-red transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-2" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-white/5">
+                        <p class="p-6 text-sm text-zinc-400 leading-relaxed">Sim! Nosso buffet conta com saladas frescas, pratos quentes à base de vegetais e sushis vegetarianos.</p>
+                    </div>
+                </div>
+
+                <div class="border border-white/5 rounded-2xl overflow-hidden bg-zhou-dark/50 transition-all duration-300 hover:border-zhou-gold/20">
+                    <button onclick="toggleFaq(3)" class="w-full p-6 text-left flex justify-between items-center group outline-none">
+                        <span class="text-sm md:text-base font-bold tracking-wide text-zinc-200 group-hover:text-zhou-gold transition-colors uppercase">Qual o valor do quilo do buffet?</span>
+                        <i id="faq-icon-3" class="fas fa-plus text-xs text-zhou-red transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-ans-3" class="max-h-0 overflow-hidden transition-all duration-500 ease-in-out bg-white/5">
+                        <div class="p-6 text-sm text-zinc-400 space-y-2 uppercase tracking-tighter text-[11px]">
+                            <p><strong>Unidade SC-401:</strong> Seg a Sex: R$ 99,90 | Sáb/Dom: R$ 109,90</p>
+                            <p><strong>Unidade Trindade:</strong> Seg a Sex: R$ 105,90 | Sáb/Dom: R$ 109,90</p>
+                            <p><strong>Unidade Giassi (Campinas):</strong> Seg a Sex: R$ 97,90 | Sáb/Dom: R$ 99,90</p>
+                            <p><strong>Unidade Biguaçu:</strong> Seg a Sex: R$ 93,90 | Sáb/Dom: R$ 97,90</p>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -256,114 +245,101 @@
             <span class="text-2xl md:text-3xl font-serif font-black text-zhou-red uppercase tracking-tighter">Zhou</span>
             <span class="text-[7px] tracking-[0.6em] text-zinc-500 uppercase block">Restaurante</span>
         </div>
-
         <div class="mb-12">
             <p class="text-[10px] text-zinc-500 uppercase tracking-widest mb-4">Quer fazer parte da nossa equipe?</p>
-            <a href="https://form.typeform.com/to/BVVwcFqv" target="_blank" class="inline-block px-10 py-4 bg-transparent border border-zhou-gold/40 rounded-full text-[10px] font-black uppercase tracking-widest text-zhou-gold hover:bg-zhou-gold hover:text-black transition-all duration-300">
-                Enviar meu Currículo <i class="fas fa-file-invoice ml-2"></i>
-            </a>
+            <a href="https://form.typeform.com/to/BVVwcFqv" target="_blank" class="inline-block px-10 py-4 bg-transparent border border-zhou-gold/40 rounded-full text-[10px] font-black uppercase tracking-widest text-zhou-gold hover:bg-zhou-gold hover:text-black transition-all">Enviar Currículo</a>
         </div>
-
-        <div class="flex justify-center gap-8 mb-12">
-            <a href="https://www.instagram.com/Zhou.Restaurante" target="_blank" aria-label="Instagram" class="text-zinc-500 hover:text-zhou-red transition-all text-2xl hover:scale-125"><i class="fab fa-instagram"></i></a>
-            <a href="https://wa.me/5548988140772" target="_blank" aria-label="WhatsApp" class="text-zinc-500 hover:text-green-500 transition-all text-2xl hover:scale-125"><i class="fab fa-whatsapp"></i></a>
-        </div>
-
-        <div class="space-y-2">
-            <p class="text-[9px] font-black uppercase tracking-[0.6em] text-zinc-600 italic">Criado Por Tassio Lino © 2026</p>
-            <p class="text-[8px] uppercase tracking-[0.4em] text-zinc-800">Santa Catarina, Brasil</p>
-        </div>
+        <p class="text-[9px] font-black uppercase tracking-[0.6em] text-zinc-600 italic">Criado Por Tassio Lino © 2026</p>
     </footer>
 
     <div id="modal" class="fixed inset-0 z-[120] hidden items-center justify-center p-4 bg-zhou-dark/98 backdrop-blur-2xl">
         <div class="bg-zhou-surface p-8 md:p-12 max-w-md w-full border border-white/10 shadow-3xl text-center relative rounded-[3rem]">
-            <button onclick="closeModal()" class="absolute top-6 right-6 text-zinc-500 hover:text-white transition text-3xl font-light">&times;</button>
-            <h3 id="m-name" class="text-3xl font-serif mb-2 italic text-zhou-red">Unidade</h3>
-            <p id="m-addr" class="text-[10px] text-zinc-500 uppercase tracking-widest mb-10 leading-relaxed px-4">Endereço</p>
-            
+            <button onclick="closeModal()" class="absolute top-6 right-6 text-zinc-500 hover:text-white transition text-3xl font-light">×</button>
+            <h3 id="m-name" class="text-3xl font-serif mb-2 italic text-zhou-red"></h3>
+            <p id="m-addr" class="text-[10px] text-zinc-500 uppercase tracking-widest mb-4 leading-relaxed px-4"></p>
+            <div id="m-horario" class="mb-8 p-4 rounded-2xl bg-white/5 border border-white/5 text-[10px] text-zinc-400 uppercase tracking-widest leading-loose"></div>
             <div class="grid grid-cols-1 gap-4 mb-8">
                 <a id="link-maps" href="#" target="_blank" class="flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-[1.5rem] hover:bg-zhou-red transition group">
-                    <div class="flex items-center gap-4">
-                        <i class="fas fa-location-dot text-2xl text-zhou-red group-hover:text-white"></i>
-                        <span class="text-xs font-bold uppercase tracking-widest text-white">Google Maps</span>
-                    </div>
-                    <i class="fas fa-arrow-right text-[10px] opacity-30"></i>
+                    <span class="text-xs font-bold uppercase tracking-widest text-white">Google Maps</span>
+                    <i class="fas fa-location-dot text-zhou-red group-hover:text-white"></i>
                 </a>
-                <a id="link-waze" href="#" target="_blank" class="flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-[1.5rem] hover:bg-[#33f1ff]/20 transition group border-white/5">
-                    <div class="flex items-center gap-4">
-                        <i class="fab fa-waze text-2xl text-[#33f1ff]"></i>
-                        <span class="text-xs font-bold uppercase tracking-widest text-white">Waze App</span>
-                    </div>
-                    <i class="fas fa-arrow-right text-[10px] opacity-30 text-[#33f1ff]"></i>
+                <a id="link-waze" href="#" target="_blank" class="flex items-center justify-between p-6 bg-white/5 border border-white/10 rounded-[1.5rem] hover:bg-[#33f1ff]/20 transition group">
+                    <span class="text-xs font-bold uppercase tracking-widest text-white">Waze App</span>
+                    <i class="fab fa-waze text-[#33f1ff]"></i>
                 </a>
             </div>
-            <button onclick="closeModal()" class="w-full py-4 text-[9px] font-black uppercase tracking-[0.3em] bg-zinc-800 text-zinc-400 hover:text-white transition rounded-full">Voltar</button>
+            <button onclick="closeModal()" class="w-full py-4 text-[9px] font-black uppercase tracking-widest bg-zinc-800 text-zinc-400 hover:text-white transition rounded-full">Voltar</button>
         </div>
     </div>
 
     <script>
-        // Funções de Controle do Slider
         const slider = document.getElementById('slider');
-        function moveSlider(direction) {
-            const scrollAmount = slider.offsetWidth * 0.8;
-            if(direction === 'next') {
-                slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-            } else {
-                slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-            }
-        }
+        function moveSlider(dir) { const amt = slider.offsetWidth * 0.8; slider.scrollBy({ left: dir === 'next' ? amt : -amt, behavior: 'smooth' }); }
 
-        // Função de Toggle para o Texto de História
         function toggleHistoria() {
             const content = document.getElementById('historia-content');
-            const gradient = document.getElementById('historia-gradient');
-            const btn = document.getElementById('btn-historia');
-            const icon = document.getElementById('icon-historia');
-
-            if (content.style.maxHeight === '1000px') {
-                content.style.maxHeight = '160px';
-                gradient.style.opacity = '1';
-                btn.querySelector('span').innerText = 'Ler história completa';
-                icon.style.transform = 'rotate(0deg)';
-            } else {
-                content.style.maxHeight = '1000px';
-                gradient.style.opacity = '0';
-                btn.querySelector('span').innerText = 'Ver menos';
-                icon.style.transform = 'rotate(180deg)';
-            }
+            const isOpened = content.style.maxHeight === '1000px';
+            content.style.maxHeight = isOpened ? '160px' : '1000px';
+            document.getElementById('historia-gradient').style.opacity = isOpened ? '1' : '0';
+            document.getElementById('btn-historia').querySelector('span').innerText = isOpened ? 'Ler história completa' : 'Ver menos';
+            document.getElementById('icon-historia').style.transform = isOpened ? 'rotate(0deg)' : 'rotate(180deg)';
         }
 
-        // Sistema de Modal para Localizações
-        function openModal(name, addr, query) {
+        function toggleFaq(id) {
+            const ans = document.getElementById(`faq-ans-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            const isOpen = ans.style.maxHeight !== '0px' && ans.style.maxHeight !== '';
+            document.querySelectorAll('[id^="faq-ans-"]').forEach(el => el.style.maxHeight = '0px');
+            document.querySelectorAll('[id^="faq-icon-"]').forEach(el => el.style.transform = 'rotate(0deg)');
+            if (!isOpen) { ans.style.maxHeight = ans.scrollHeight + "px"; icon.style.transform = 'rotate(45deg)'; }
+        }
+
+        const horariosConfig = {
+            sc401: { segSab: [['11:00', '15:30'], ['17:30', '21:40']], dom: [['11:00', '21:40']], texto: "Seg a Sáb: 11h-15:30h / 17:30h-21:40h <br> Dom: 11h-21:40h" },
+            biguacu: { segSab: [['11:00', '15:30'], ['17:00', '21:40']], dom: [['11:00', '15:20']], texto: "Seg a Sáb: 11h-15:30h / 17h-21:40h <br> Dom: 11h-15:20h" },
+            campinas: { segSab: [['11:00', '15:30'], ['17:30', '21:40']], dom: [['11:00', '15:20']], texto: "Seg a Sáb: 11h-15:30h / 17:30h-21:40h <br> Dom: 11h-15:20h" },
+            trindade: { segSab: [['11:00', '15:30'], ['17:00', '21:40']], dom: [['11:00', '21:40']], texto: "Seg a Sáb: 11h-15:30h / 17h-21:40h <br> Dom: 11h-21:40h" }
+        };
+
+        function estaAberto(key) {
+            const agora = new Date();
+            const dia = agora.getDay(); 
+            const min = agora.getHours() * 60 + agora.getMinutes();
+            const conf = horariosConfig[key];
+            const periodos = (dia === 0) ? conf.dom : conf.segSab;
+            return periodos.some(p => {
+                const [hI, mI] = p[0].split(':').map(Number);
+                const [hF, mF] = p[1].split(':').map(Number);
+                return min >= (hI * 60 + mI) && min <= (hF * 60 + mF);
+            });
+        }
+
+        function atualizarBadgesStatus() {
+            Object.keys(horariosConfig).forEach(key => {
+                const badge = document.getElementById(`status-${key}`);
+                const aberto = estaAberto(key);
+                badge.innerHTML = `<div class="flex items-center gap-2 px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border ${aberto ? 'border-green-500/50' : 'border-red-500/50'}">
+                    <div class="w-1.5 h-1.5 rounded-full ${aberto ? 'bg-green-500 animate-pulse' : 'bg-red-500'}"></div>
+                    <span class="text-[8px] font-black uppercase tracking-widest ${aberto ? 'text-green-500' : 'text-red-500'}">${aberto ? 'Aberto' : 'Fechado'}</span>
+                </div>`;
+            });
+        }
+
+        function openModal(name, addr, query, key) {
             document.getElementById('m-name').innerText = name;
             document.getElementById('m-addr').innerText = addr;
-            const encodedQuery = encodeURIComponent(query);
-            
-            // Links de GPS
-            document.getElementById('link-maps').href = `https://www.google.com/maps/search/?api=1&query=${encodedQuery}`;
-            document.getElementById('link-waze').href = `https://waze.com/ul?q=${encodedQuery}&navigate=yes`;
-            
-            // Exibição do Modal
-            const modal = document.getElementById('modal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Trava o scroll do fundo
+            document.getElementById('m-horario').innerHTML = `<p class="mb-2 text-white italic">Horários:</p>${horariosConfig[key].texto}`;
+            const q = encodeURIComponent(query);
+            document.getElementById('link-maps').href = `https://www.google.com/maps/search/?api=1&query=${q}`;
+            document.getElementById('link-waze').href = `https://waze.com/ul?q=${q}&navigate=yes`;
+            document.getElementById('modal').classList.replace('hidden', 'flex');
+            document.body.style.overflow = 'hidden';
         }
 
-        function closeModal() {
-            const modal = document.getElementById('modal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-            document.body.style.overflow = 'auto'; // Destrava o scroll
-        }
+        function closeModal() { document.getElementById('modal').classList.replace('flex', 'hidden'); document.body.style.overflow = 'auto'; }
 
-        // Fechar modal ao clicar fora dele
-        window.onclick = function(event) {
-            const modal = document.getElementById('modal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
+        atualizarBadgesStatus();
+        setInterval(atualizarBadgesStatus, 60000);
     </script>
 </body>
 </html>
